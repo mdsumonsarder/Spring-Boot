@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Programmers</title>
+</head>
+<body>
+    <h3>All Programmer Information</h3>
+    <table>
+        <tr th:each="p:${programmers}">
+            <td th:text="${p.pId}"></td>
+            <td th:text="${p.pName}"></td>
+            <td th:text="${p.pLang}"></td>
+        </tr>
+    </table>
+</body>
+</html>
