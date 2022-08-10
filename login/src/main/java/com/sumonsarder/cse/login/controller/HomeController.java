@@ -22,4 +22,8 @@ public class HomeController {
     public String login(){
         return "login";
     }
+    @GetMapping("/deshbord")
+    public String deshbord(){
+        return "deshbord";
+    }
 }

@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         UserDetails user = User.withDefaultPasswordEncoder()
                 .username("sumon")
                 .password("123456")
-                .roles("ADMIN","USER")
+                .roles("SUPER-ADMIN","USER")
                 .build();
 
         return new InMemoryUserDetailsManager(user);
@@ -33,7 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/","/home")
                 .permitAll()
                 .antMatchers("/hello")
-                .hasRole("ADMIN")
+                .hasRole("USER")
+                .antMatchers("/deshbord")
+                .hasRole("SUPER-ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
