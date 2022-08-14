@@ -1,0 +1,151 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <script src="/angular/angular.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/angular/loading-bar.js"></script>
+    <script src="/css/jquery-3.1.1.js"></script>
+    <script src="/css/bootstrap.min-3.3.7.js"></script>
+        <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: green;
+            color: white;
+            text-align: center;
+        }
+
+         body {
+             color: #fff;
+             background: #63738a;
+             font-family: 'Roboto', sans-serif;
+         }
+        .form-control{
+            height: 40px;
+            box-shadow: none;
+            color: #969fa4;
+        }
+        .form-control:focus{
+            border-color: #5cb85c;
+        }
+        .form-control, .btn{
+            border-radius: 3px;
+        }
+        .signup-form{
+            width: 400px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        .signup-form h2{
+            color: #636363;
+            margin: 0 0 15px;
+            position: relative;
+            text-align: center;
+        }
+        .signup-form h2:before, .signup-form h2:after{
+            content: "";
+            height: 2px;
+            width: 30%;
+            background: #d4d4d4;
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+        }
+        .signup-form h2:before{
+            left: 0;
+        }
+        .signup-form h2:after{
+            right: 0;
+        }
+        .signup-form .hint-text{
+            color: #999;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .signup-form form{
+            color: #999;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            background: #f2f3f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+        .signup-form .form-group{
+            margin-bottom: 20px;
+        }
+        .signup-form input[type="checkbox"]{
+            margin-top: 3px;
+        }
+        .signup-form .btn{
+            font-size: 16px;
+            font-weight: bold;
+            min-width: 140px;
+            outline: none !important;
+        }
+        .signup-form .row div:first-child{
+            padding-right: 10px;
+        }
+        .signup-form .row div:last-child{
+            padding-left: 10px;
+        }
+        .signup-form a{
+            color: #fff;
+            text-decoration: underline;
+        }
+        .signup-form a:hover{
+            text-decoration: none;
+        }
+        .signup-form form a{
+            color: #5cb85c;
+            text-decoration: none;
+        }
+        .signup-form form a:hover{
+            text-decoration: underline;
+        }
+        </style>
+    <link href="/images/login.png" rel="icon">
+    <link rel="stylesheet" href="/bootstrap/font-awesome.min.css"/>
+
+</head>
+<body  style="opacity: 0.9;" ng-app="angHomeApp">
+<div class="container" style="padding-top: 7%;">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-body">
+                    <center> <p th:inline="text">[[${result}]]</p></center>
+                    <form action="/login" method="POST" class="form-signin">
+                        <center><h3 class="form-signin-heading" th:text="Welcome"></h3></center><br>
+                        <div class="input-group input-sm p-l-0 p-r-0">
+                            <label class="input-group-addon" for="email"><i class="fa fa-user"></i></label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                        </div>
+                        <div class="input-group input-sm p-l-0 p-r-0">
+                            <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                        </div>
+                        <br>
+                        <fieldset>
+                            <button class="btn btn-lg btn-success btn-block" name="Submit" value="Login" type="Submit"><i class='fa fa-sign-in'></i> Login</button>
+                        </fieldset>
+                    </form>
+                    <div class="text-info">Don't have an account? <a th:href="@{/registration}">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/angular/angular-resource.js"></script>
+<script type="text/javascript" src="/kha/angular-strap.js"></script>
+<script type="text/javascript" src="/kha/angular-strap.tpl.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="/angular/angular-sanitize.js"></script>
+<script src="/angular/angular-ui-router.min.js"></script>
+<script src="/angular/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script type="text/javascript" src="/kha/dirPagination.js"></script>
+<script src="/angular/hotkeys.js"></script>
+</body>
+</html>
