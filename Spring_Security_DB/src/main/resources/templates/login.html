@@ -116,7 +116,7 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-body">
-                    <center> <p th:inline="text">[[${result}]]</p></center>
+                    <center> <p th:inline="text" style="color: red">[[${result}]]</p></center>
                     <form action="/login" method="POST" class="form-signin">
                         <center><h3 class="form-signin-heading" th:text="Welcome"></h3></center><br>
                         <div class="input-group input-sm p-l-0 p-r-0">
@@ -137,6 +137,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <script src="/angular/angular-resource.js"></script>
 <script type="text/javascript" src="/kha/angular-strap.js"></script>

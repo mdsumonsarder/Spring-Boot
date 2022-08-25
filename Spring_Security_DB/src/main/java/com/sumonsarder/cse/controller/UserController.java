@@ -5,6 +5,8 @@ import com.sumonsarder.cse.model.User;
 import com.sumonsarder.cse.service.RoleService;
 import com.sumonsarder.cse.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,5 +45,21 @@ public class UserController {
         userService.addUser(user);
         model.addAttribute("result", "Registration successful");
         return "login";
+    }
+
+    @GetMapping("/user/userHome")
+    public String userHome(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.getUserByEmail(authentication.getName());
+        model.addAttribute("name", "Hello, " + user.getName() + ", Welcome to Spring Security");
+        return "userHome";
+    }
+
+    @GetMapping("/admin/adminHome")
+    public String adminHome(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.getUserByEmail(authentication.getName());
+        model.addAttribute("name", "Hello, " + user.getName() + ", Welcome to Spring Security");
+        return "adminHome";
     }
 }

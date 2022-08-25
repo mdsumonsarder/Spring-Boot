@@ -26,12 +26,11 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("/admin/home")
+    @GetMapping("/home")
     public String home(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.getUserByEmail(authentication.getName());
         model.addAttribute("name", "Hello, " + user.getName() + ", Welcome to Spring Security");
         return "home";
     }
-
 }

@@ -27,7 +27,6 @@ public class MvcController {
 
         model.addAttribute("user", user);
         model.addAttribute("professionList", professionList);
-
         return "register_form";
     }
 
