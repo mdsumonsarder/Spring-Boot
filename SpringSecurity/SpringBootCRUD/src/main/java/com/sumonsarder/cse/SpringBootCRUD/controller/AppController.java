@@ -30,7 +30,7 @@ public class AppController {
     public String showNewProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "new_product";
+        return "product/new_product";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class AppController {
 
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_product");
+        ModelAndView mav = new ModelAndView("product/edit_product");
         Product product = service.get(id);
         mav.addObject("product", product);
         return mav;
@@ -52,6 +52,4 @@ public class AppController {
         service.delete(id);
         return "redirect:/";
     }
-
-
 }
